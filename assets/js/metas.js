@@ -1,15 +1,19 @@
+// Armaze a meta no localStore
 let goals = JSON.parse(localStorage.getItem('goals')) || [];
 
+// Retorna a Página Principal
 function goBack() {
     window.location.href = '/index.html';
 }
 
+// Função para validar as datas
 function validateDates(startDate, endDate) {
     const start = new Date(startDate);
     const end = new Date(endDate);
     return start <= end;
 }
 
+//  Função para calcular a diferença entre as datas
 function addGoal() {
     const title = document.getElementById('goalTitle').value.trim();
     const startDate = document.getElementById('startDate').value;
@@ -53,10 +57,11 @@ function deleteGoal(goalId) {
         localStorage.setItem('goals', JSON.stringify(goals));
         renderGoals();
     } else {
-        alert("Senha incorreta.");
+        alert("Senha incorrecta.");
     }
 }
 
+// Função para adicionar etapa
 function addStep(goalId) {
     const stepInput = document.getElementById(`stepInput-${goalId}`);
     const stepTitle = stepInput.value.trim();
@@ -69,6 +74,7 @@ function addStep(goalId) {
     }
 }
 
+// Função para deletar etapa
 function deleteStep(goalId, stepIndex) {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (!currentUser) {
@@ -83,7 +89,7 @@ function deleteStep(goalId, stepIndex) {
         localStorage.setItem('goals', JSON.stringify(goals));
         renderGoals();
     } else {
-        alert("Senha incorreta.");
+        alert("Senha incorrecta.");
     }
 }
 
@@ -94,6 +100,7 @@ function toggleStep(goalId, stepIndex) {
     renderGoals();
 }
 
+// Função para actualizar o progresso
 function updateProgress(goal) {
     if (!goal.steps.length) return 0;
     const completedSteps = goal.steps.filter(step => step.completed).length;
@@ -112,6 +119,8 @@ collapsedStates[goalId] = content.classList.contains('collapsed');
 localStorage.setItem('collapsedGoals', JSON.stringify(collapsedStates));
 }
 
+
+// Renderizar as Metas
 function renderGoals() {
 const goalsContainer = document.getElementById('goalsList');
 goalsContainer.innerHTML = '';
@@ -140,7 +149,7 @@ goals.forEach(goal => {
         </div>
         <div id="goal-content-${goal.id}" 
              class="goal-content ${collapsedStates[goal.id] ? 'collapsed' : ''}">
-             <a href="../paginas/progresso.html?goalId=${goal.id}" class="calendar-btn">
+             <a href="/paginas/progresso.html?goalId=${goal.id}" class="calendar-btn">
                 <i class="fas fa-calendar"></i>
                 Ver Calendário
             </a>

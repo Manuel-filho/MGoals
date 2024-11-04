@@ -1,3 +1,4 @@
+// Mudar Menu
 function toggleMenu() {
     const sidebar = document.getElementById('sidebar');
     const content = document.getElementById('content');
@@ -8,6 +9,7 @@ function toggleMenu() {
     overlay.classList.toggle('active');
 }
 
+// Ir para a página de metas
 function goToGoals() {
     window.location.href = 'paginas/metas.html';
 }
@@ -20,6 +22,7 @@ document.querySelectorAll('.sidebar a').forEach(link => {
     });
 });
 
+// Terminar Sessão
 document.getElementById('logout').addEventListener('click', () => {
     localStorage.removeItem('currentUser');
     window.location.href = 'paginas/autenticacao.html';

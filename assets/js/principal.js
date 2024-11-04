@@ -1,3 +1,4 @@
+// Verificada A autenticaçao do Usuário
 function checkAuth() {
     const currentUser = localStorage.getItem('currentUser');
     if (!currentUser) {
@@ -8,6 +9,7 @@ checkAuth()
 
 console.log('[App] Verificando cache e service worker...');
 
+// Registra o Service Worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
 navigator.serviceWorker.register('/config/service-worker.js')
@@ -20,19 +22,12 @@ navigator.serviceWorker.register('/config/service-worker.js')
     });
 }
 
-//navigator.serviceWorker.addEventListener('message', (event) => {
-//    if (event.data === 'Service worker actualizado! Por favor, actualize a página.') {
-//        alert(event.data);
-//    }
-//});
-
-
-// Função  para testar o status
+// Função  para testar o status do Serivce Worker
 function testServiceWorker() {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.ready
             .then(registration => {
-                console.log('[App] Service Worker está ativo');
+                console.log('[App] Service Worker está activo');
                 
                 // Verifica o cache
                 caches.keys().then(cacheNames => {
@@ -41,7 +36,7 @@ function testServiceWorker() {
                 
                 // Verifica o estado
                 if (registration.active) {
-                    console.log('[App] Estado: Ativo');
+                    console.log('[App] Estado: Activo');
                 } else if (registration.installing) {
                     console.log('[App] Estado: Instalando');
                 } else if (registration.waiting) {
@@ -57,7 +52,7 @@ function testServiceWorker() {
 // Chama a função após o registro
 testServiceWorker();
 
-// Função para testar atualizações
+// Função para testar actualizações
 function checkForUpdates() {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.ready
@@ -68,16 +63,13 @@ function checkForUpdates() {
     }
 }
 
-// Chamar periodicamente
-setInterval(checkForUpdates, 1000 * 60 * 60); // A cada hora
+setInterval(checkForUpdates, 1000 * 60 * 60); 
 
-// Adicione esta função para monitorar o estado da conexão
+// Função para monitorar o estado da conexão
 function checkConnectivity() {
     const updateOnlineStatus = () => {
         const condition = navigator.onLine ? 'online' : 'offline';
         console.log(`[App] Aplicação está ${condition}`);
-        
-        // Teste o cache se estiver offline
         if (!navigator.onLine) {
             caches.match('/index.html')
                 .then(response => {
@@ -97,38 +89,22 @@ function checkConnectivity() {
 
 checkConnectivity();
 
-// Instalar PWA
-let deferredPrompt; // Declaração da variável para armazenar o evento
-
-// Detecta quando o navegador dispara o evento `beforeinstallprompt`
-window.addEventListener('beforeinstallprompt', (event) => {
-  // Impede que o prompt seja exibido automaticamente
-  event.preventDefault();
-  // Armazena o evento para uso posterior
-  deferredPrompt = event;
-  
-  // Exibe o botão de instalação para o usuário
-  document.getElementById('installButton').style.display = 'block';
-  console.log("O evento 'beforeinstallprompt' foi acionado e armazenado.");
+// Instalar PWA 
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    document.querySelector('.install-prompt').style.display = 'block';
 });
 
-// Configura o clique no botão de instalação
 document.getElementById('installButton').addEventListener('click', async () => {
-  if (deferredPrompt) {
-    // Exibe o prompt de instalação usando o evento armazenado
-    deferredPrompt.prompt();
-    
-    // Espera pela resposta do usuário ao prompt
-    const choiceResult = await deferredPrompt.userChoice;
-    if (choiceResult.outcome === 'accepted') {
-      console.log('Usuário aceitou o prompt de instalação');
-    } else {
-      console.log('Usuário recusou o prompt de instalação');
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+            document.querySelector('.install-prompt').style.display = 'none';
+        }
+        deferredPrompt = null;
     }
-    
-    // Reseta `deferredPrompt` para `null` para evitar reutilização
-    deferredPrompt = null;
-  }
 });
 
 
