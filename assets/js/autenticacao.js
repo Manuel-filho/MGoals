@@ -53,7 +53,7 @@
         function checkLoggedUser() {
             const currentUser = localStorage.getItem('currentUser');
             if (currentUser) {
-                window.location.href = 'index.html';
+                window.location.href = '/index.html';
             }
         }
 
