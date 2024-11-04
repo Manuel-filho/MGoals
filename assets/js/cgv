@@ -1,0 +1,7 @@
+  <div class="install-prompt">
+        <div><i class="fas fa-download"></i> Instale o app na sua tela inicial!</div>
+        <button id="installButton">
+            <i class="fas fa-plus"></i>
+            Instalar
+        </button>
+    </div>

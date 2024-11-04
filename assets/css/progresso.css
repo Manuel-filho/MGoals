@@ -1,0 +1,123 @@
+.header {
+    position: sticky;
+    top: 0;
+    background: #2196f3;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.back-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.progress-container {
+    margin-top: 0.5rem;
+}
+
+.progress-text {
+    margin-bottom: 0.25rem;
+    color: white;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: rgba(255,255,255,0.3);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+.months-container {
+    padding: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.month-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.month-title {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.weekday {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+    padding: 0.5rem 0;
+}
+
+.day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+}
+
+.day.completed {
+    background-color: #2196f3;
+    color: white;
+}
+
+.empty {
+    pointer-events: none;
+}
+
+@media (hover: hover) {
+    .day:hover:not(.empty) {
+        background-color: #e5e5e5;
+    }
+    
+    .day.completed:hover {
+        background-color: #1976d2;
+    }
+}
+
+.goal-info {
+    background: white;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.steps-progress {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}

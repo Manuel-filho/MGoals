@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Introdução</title>
+    <link rel="manifest" href="config/manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/principal.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="shortcut icon" href="/assets/imagens/logo-colored.png" type="image/x-icon">
+</head>
+<body>
+    <div class="mobile-overlay" id="overlay" onclick="toggleMenu()"></div>
+    
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="app-name">MGoals</div>
+        </div>
+        
+        <div class="menu-section">
+            <div class="menu-section-title">Geral</div>
+            <a href="#" id="dashboard" class="active">
+                <i class="fas fa-home"></i> Dashboard
+            </a>
+            <a href="#" id="goals">
+                <i class="fas fa-bullseye"></i> Minhas Metas
+            </a>
+            <a href="#" id="calendar">
+                <i class="fas fa-calendar"></i> Calendário
+            </a>
+        </div>
+
+        <div class="menu-section">
+            <div class="menu-section-title">Conta</div>
+            <a href="#" id="profile">
+                <i class="fas fa-user"></i> Perfil
+            </a>
+            <a href="#" id="settings">
+                <i class="fas fa-cog"></i> Configurações
+            </a>
+            <a href="paginas/autenticacao.html" id="logout">
+                <i class="fas fa-sign-out-alt"></i> Sair
+            </a>
+        </div>
+    </div>
+
+    <button class="toggle-menu" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="content" id="content">
+        <div class="welcome-text">Bem-vindo ao Aplicativo de Metas</div>
+        <div class="description">
+            Este aplicativo foi desenvolvido para ajudá-lo a definir, acompanhar e alcançar suas metas de forma organizada e eficiente.
+            Explore as funcionalidades para gerenciar seus objetivos pessoais e monitorar seu progresso com calendários específicos.
+        </div>
+        <button class="btn" onclick="goToGoals()">Gerenciar Metas</button>
+    </div>
+    <div class="install-prompt">
+        <div><i class="fas fa-download"></i> Instale o app na sua tela inicial!</div>
+        <button id="installButton">
+            <i class="fas fa-plus"></i>
+            Instalar
+        </button>
+    </div>
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/principal.js"></script>
+</body>
+</html>

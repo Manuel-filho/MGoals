@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Metas</title>
+    <link rel="manifest" href="/config/manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/principal.css">
+    <link rel="stylesheet" href="/assets/css/metas.css">
+    <link rel="shortcut icon" href="/assets/imagens/logo-colored.png" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i>
+        <div class="title">Gerenciador de Metas</div>
+    </div>
+
+    <div class="container">
+        <div class="goal-form">
+            <h3>Nova Meta</h3>
+            <div class="form-group">
+                <input type="text" id="goalTitle" placeholder="Título da meta">
+            </div>
+            <div class="date-inputs">
+                <div class="form-group">
+                    <input type="date" id="startDate" placeholder="Data de Início">
+                </div>
+                <div class="form-group">
+                    <input type="date" id="endDate" placeholder="Data de Fim">
+                </div>
+            </div>
+            <button class="btn" onclick="addGoal()">Adicionar Meta</button>
+        </div>
+
+        <div id="goalsList"></div>
+    </div>
+
+    <div class="install-prompt">
+        <div><i class="fas fa-download"></i> Instale o app na sua tela inicial!</div>
+        <button id="installButton">
+            <i class="fas fa-plus"></i>
+            Instalar
+        </button>
+    </div>
+
+    <script src="/assets/js/metas.js"></script>
+    <script src="/assets/js/principal.js"></script>
+</body>
+</html>

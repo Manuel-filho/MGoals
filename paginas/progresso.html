@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progresso da Meta</title>
+    <link rel="manifest" href="/config/manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/principal.css">
+    <link rel="stylesheet" href="/assets/css/progresso.css">
+    <link rel="shortcut icon" href="/assets/imagens/logo-colored.png" type="image/x-icon">
+</head>
+<body>
+    <div class="header">
+        <i class="fas fa-arrow-left back-icon" onclick="goBack()"></i>
+        <div>
+            <div class="title" id="goalTitle">Carregando.</div>
+            <div class="progress-container">
+                <div class="progress-text" id="progressText">0% Completo</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="goal-info">
+        <div id="dateRange"></div>
+        <div class="steps-progress" id="stepsProgress"></div>
+    </div>
+
+    <div class="months-container"></div>
+
+    <div class="install-prompt">
+        <div><i class="fas fa-download"></i> Instale o app na sua tela inicial!</div>
+        <button id="installButton">
+            <i class="fas fa-plus"></i>
+            Instalar
+        </button>
+    </div>
+
+    <script src="/assets/js/progresso.js"></script>
+    <script src="/assets/js/principal.js"></script>
+</body>
+</html>
