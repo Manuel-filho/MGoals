@@ -1,0 +1,2 @@
+# MGoals
+ Este projecto é uma aplicação progressiva para gerenciamento de metas pessoais, desenvolvido em HTML, CSS e JavaScript (Com JSON). Ele permite aos usuários criar metas, acompanhar o progresso diário e gerenciar suas etapas de maneira organizada. O aplicativo oferece funcionalidades de autenticação, criação de metas, monitoramento de progresso e visualização por meio de um calendário interactivo.
