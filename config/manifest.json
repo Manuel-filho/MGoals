@@ -2,7 +2,7 @@
   "name": "MGoals",
   "short_name": "Metas",
   "description": "Aplicativo para gerenciamento de metas pessoais, acompanhamento de progresso e organização de tarefas.",
-  "start_url": "/index.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#f5f5f5",
   "theme_color": "#3b82f6",
