@@ -1,6 +1,6 @@
 {
   "name": "MGoals",
-  "short_name": "Metas",
+  "short_name": "MGoals",
   "description": "Aplicativo para gerenciamento de metas pessoais, acompanhamento de progresso e organização de tarefas.",
   "start_url": "./index.html",
   "display": "standalone",
